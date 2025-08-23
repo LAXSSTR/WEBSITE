@@ -53,14 +53,14 @@
     display:flex;justify-content:center;margin:25px 0 30px 0;
   }
   .logo-box img{
-    width:180px;height:180px;object-fit:cover;
+    width:200px;height:200px;object-fit:cover;
     border-radius:50%;border:3px solid var(--yellow);
     box-shadow:var(--logo-glow);
     transition:opacity 1s ease-in-out;
     position:absolute;
   }
   .logo-wrapper{
-    position:relative;width:180px;height:180px;
+    position:relative;width:200px;height:200px;
   }
   .logo-box img.hidden{opacity:0}
 
@@ -176,11 +176,11 @@ function openPopup(type){
     popupContent.querySelector("p").innerText=
       "Begini Caranya Gan:\n\n"+
       "1. Hubungi Admin Via WA / DM Ig\n"+
-      "2. Niat Jual / Beli Akun (PHP Blokir) / Ingin Menggunakan Jasa Rekber / MC (Culik Aja)\n"+
+      "2. Niat Jual / Beli Akun (PHP Blokir) / Ingin Menggunakan Jasa Rekber / MC\n"+
       "3. Buat Kesepakatan Trx dan Deal Harga\n"+
       "4. Jika Direct Lanjut Ke Pembayaran Akun\n"+
-      "5. Setelah Dana Masuk Lanjut Send Data Akun\n"+
-      "6. Trx Selesai Transparant\n";
+      "5. Setelah Dana Masuk Lanjut Send Data\n"+
+      "6. Trx Selesai\n";
   }else if(type==="bahaya"){
     popupContent.querySelector("h2").innerText="Bahaya Trx JB";
     popupContent.querySelector("p").innerHTML=`
