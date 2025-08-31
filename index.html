@@ -74,10 +74,10 @@
     gap:8px;
     padding:18px 14px;border-radius:var(--radius);
     background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,140,0,.2);
+    border:2px solid var(--yellow); /* stroke mirip logo */
     color:var(--text);font-weight:600;
     text-decoration:none;font-size:14px;cursor:pointer;
-    box-shadow:var(--card-glow);
+    box-shadow:0 0 12px rgba(255,215,102,.6); /* glow mirip logo */
     transition:.25s;text-align:center;
     animation:ombak 5s ease-in-out infinite;
     font-family:"LAXSFont",sans-serif;
@@ -87,6 +87,7 @@
   }
   .menu a:hover, .menu button:hover{
     background:var(--grad);color:#210b0f;border-color:transparent;
+    box-shadow:0 0 18px rgba(255,215,102,.9);
   }
 
   /* Animasi Ombak */
@@ -107,12 +108,29 @@
   .popup-content{position:relative;background:#000;border-radius:12px;
     max-width:90%;max-height:80%;padding:18px;color:var(--text);
     line-height:1.6;font-size:15px;overflow:auto;
-    font-family:sans-serif;} /* <= popup tetap sans-serif */
+    font-family:sans-serif;}
   .popup-content h2{margin-bottom:12px;color:var(--yellow);}
   .x-btn{
     position:absolute;top:10px;right:14px;
     font-size:22px;font-weight:800;color:var(--yellow);
     cursor:pointer;background:none;border:none;
+  }
+
+  /* Popup Welcome Lebih Bagus */
+  .welcome-text {
+    text-align:center;
+    font-family:"LAXSFont",sans-serif;
+    font-size:18px;
+    line-height:1.8;
+  }
+  .welcome-text h3{
+    font-size:22px;
+    color:var(--yellow);
+    margin-bottom:10px;
+  }
+  .welcome-text p{
+    color:var(--muted);
+    font-size:15px;
   }
 </style>
 </head>
@@ -120,7 +138,7 @@
 <header class="topbar">
   <div class="wrap">
     <div class="brand"><span class="dot"></span><span>LAXSTORE JB</span></div>
-    <span class="chip">JB BERGARANSI</span>
+    <span class="chip">REGION BREBES</span>
   </div>
 </header>
 
@@ -143,12 +161,14 @@
     <a href="https://chat.whatsapp.com/L2CDRuzAAtn766SMyKIFb7?mode=ems_copy_c" target="_blank">
       <img src="https://img.icons8.com/ios-filled/50/ffffff/groups.png" alt="Komunitas"/> KOMUNITAS
     </a>
-    <a href="https://whatsapp.com/channel/0029Vb68P2X0LKZLMC407404" target="_blank">
-      <img src="https://img.icons8.com/external-dashed-line-kawalan-studio/50/FFFFFF/external-whatsapp-status-social-media-dashed-line-kawalan-studio.png" alt="Saluran"/> SALURAN
+    <!-- STOCK pakai link -->
+    <a href="https://whatsapp.com/channel/0029VbB7cLn7z4kmopiaQR1H" target="_blank">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/open-box.png" alt="Stock"/> STOCK
     </a>
-    <button onclick="openPopup('trx')">
-      <img src="https://img.icons8.com/ios/50/FFFFFF/receipt-approved.png" alt="TRX"/> CARA TRX
-    </button>
+    <!-- TESTI pakai link -->
+    <a href="https://whatsapp.com/channel/0029Vb68P2X0LKZLMC407404" target="_blank">
+      <img src="https://img.icons8.com/ios/50/FFFFFF/good-quality.png" alt="Testi"/> TESTI
+    </a>
     <button onclick="openPopup('bahaya')">
       <img src="https://img.icons8.com/ios-filled/50/ffffff/high-risk.png" alt="Bahaya"/> BAHAYA
     </button>
@@ -171,16 +191,14 @@ const popup=document.getElementById("popup");
 const popupContent=document.getElementById("popupContent");
 
 function openPopup(type){
-  if(type==="trx"){
-    popupContent.querySelector("h2").innerText="TRX DI LAXSTORE";
+  if(type==="testi"){
+    popupContent.querySelector("h2").innerText="TESTIMONI LAXSTORE";
     popupContent.querySelector("p").innerText=
-      "Begini Caranya Gan:\n\n"+
-      "1. Hubungi Admin Via WA / DM Ig\n"+
-      "2. Niat Jual / Beli Akun (PHP Blokir) / Ingin Menggunakan Jasa Rekber / MC\n"+
-      "3. Buat Kesepakatan Trx dan Deal Harga\n"+
-      "4. Jika Direct Lanjut Ke Pembayaran Akun\n"+
-      "5. Setelah Dana Masuk Lanjut Send Data\n"+
-      "6. Trx Selesai\n";
+      "📢 Berikut beberapa testimoni pelanggan LAXSTORE JB:\n\n"+
+      "✅ Amanah dan terpercaya\n"+
+      "✅ Proses cepat\n"+
+      "✅ Garansi jelas\n\n"+
+      "Terima kasih telah percaya pada LAXSTORE!";
   }else if(type==="bahaya"){
     popupContent.querySelector("h2").innerText="Bahaya Trx JB";
     popupContent.querySelector("p").innerHTML=`
@@ -199,10 +217,15 @@ function openPopup(type){
       <h3 style="color: white;">⁉️ Jika Masih Kurang Memahami Tentang Penjelasan Bahaya Transaksi Yang Ada Di JB Bisa Langsung Tanyakan MinLaxs</h3>
     `;
   }else if(type==="welcome"){
-    popupContent.querySelector("h2").innerText="Oy!";
-    popupContent.querySelector("p").innerText=
-      "Hi, Selamat Datang di LAXSTORE JB\n"+
-      "JB Akun Bergaransi, Amanah, dan Terpercaya.";
+    popupContent.querySelector("h2").innerText="";
+    popupContent.querySelector("p").innerHTML=`
+      <div class="welcome-text">
+        <h3>Hi, Sobat LAXSTORE JB!</h3>
+        <p>Terima kasih sudah mampir 🙌<br>
+        Kami hadir dengan layanan <b>Jual Beli Akun Bergaransi</b><br>
+        💯 Amanah • 🔥 Terpercaya • ⚡ Fast Respon</p>
+      </div>
+    `;
   }
   popup.classList.add("show");
 }
